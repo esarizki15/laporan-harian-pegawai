@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('id')->references('id_penulis')->on('laporans')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -30,6 +33,10 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+
+        Schema::table('users', function($table) {
+            $table->dropForeign('laporans_id_penulis_foreign');
+        });
         Schema::dropIfExists('users');
     }
 }

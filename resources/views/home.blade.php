@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    Anda berhasil login!
+                    You are logged in!
                 </div>
             </div>
         </div>

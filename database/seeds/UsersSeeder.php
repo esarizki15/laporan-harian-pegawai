@@ -12,32 +12,24 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-    	// Membuat role atasan
-		$atasanRole = new Role();
-		$atasanRole->name = "atasan";
-		$atasanRole->display_name = "Atasan";
-		$atasanRole->save();
-		
         // Membuat role admin
 		$adminRole = new Role();
 		$adminRole->name = "admin";
 		$adminRole->display_name = "Admin";
 		$adminRole->save();
-		
+
 		// Membuat role member
 		$memberRole = new Role();
 		$memberRole->name = "member";
 		$memberRole->display_name = "Member";
 		$memberRole->save();
 		
-		// Membuat sample atasan
-		$atasan = new User();
-		$atasan->name = 'Manager Larapus';
-		$atasan->email = 'manager@gmail.com';
-		$atasan->password = bcrypt('rahasia');
-		$atasan->save();
-		$atasan->attachRole($atasanRole);
-
+		// Membuat role atasan
+		$atasanRole = new Role();
+		$atasanRole->name = "atasan";
+		$atasanRole->display_name = "Atasan";
+		$atasanRole->save();
+		
 		// Membuat sample admin
 		$admin = new User();
 		$admin->name = 'Admin Larapus';
@@ -45,7 +37,7 @@ class UsersSeeder extends Seeder
 		$admin->password = bcrypt('rahasia');
 		$admin->save();
 		$admin->attachRole($adminRole);
-
+		
 		// Membuat sample member
 		$member = new User();
 		$member->name = "Sample Member";
@@ -53,5 +45,13 @@ class UsersSeeder extends Seeder
 		$member->password = bcrypt('rahasia');
 		$member->save();
 		$member->attachRole($memberRole);
+
+		// Membuat sample atasan
+		$atasan = new User();
+		$atasan->name = "Manager";
+		$atasan->email = 'manager@gmail.com';
+		$atasan->password = bcrypt('rahasia');
+		$atasan->save();
+		$atasan->attachRole($atasanRole);
     }
 }
